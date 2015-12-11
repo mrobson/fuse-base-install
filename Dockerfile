@@ -6,12 +6,15 @@ MAINTAINER Matthew Robson <matthewrobson@gmail.com>
 ENV FUSE_VERSION 6.2.1.redhat-084
 ENV FUSE_ARTIFACT jboss-fuse-full
 ENV FUSE_RELEASE ${FUSE_ARTIFACT}-${FUSE_VERSION}
+ENV FUSE_ARCHIVE http://repository.jboss.org/nexus/content/groups/ea/org/jboss/fuse/${FUSE_ARTIFACT}/${FUSE_VERSION}/${FUSE_RELEASE}.zip
 ENV FUSE_HOME /opt/fuse
 
-COPY jboss-fuse-full-6.2.1.redhat-084.zip ${FUSE_HOME}/
+#COPY jboss-fuse-full-6.2.1.redhat-084.zip ${FUSE_HOME}/
+COPY config.sh ${FUSE_HOME}/config.sh
 
 #Install Run
 RUN \
+	curl -O ${FUSE_ARCHIVE} && \
 	jar -xvf ${FUSE_RELEASE}.zip && \
 	rm ${FUSE_RELEASE}.zip && \
 	mv jboss-fuse-${FUSE_VERSION} ${FUSE_ARTIFACT} && \
@@ -28,7 +31,5 @@ RUN \
 	sed -i -e '/runtime.id=/d' ${FUSE_ARTIFACT}/etc/system.properties && \
 	sed -i -e 's/karaf.delay.console=true/karaf.delay.console=false/' ${FUSE_ARTIFACT}/etc/config.properties && \
 	sed -i -e 's/karaf.delay.console=true/karaf.delay.console=false/' ${FUSE_ARTIFACT}/etc/custom.properties
-
-COPY config.sh ${FUSE_HOME}/config.sh
 
 RUN ${FUSE_HOME}/config.sh
