@@ -30,6 +30,7 @@ RUN \
 	sed -i -e '/karaf.name = root/d' ${FUSE_ARTIFACT}/etc/system.properties && \
 	sed -i -e '/runtime.id=/d' ${FUSE_ARTIFACT}/etc/system.properties && \
 	sed -i -e 's/karaf.delay.console=true/karaf.delay.console=false/' ${FUSE_ARTIFACT}/etc/config.properties && \
-	sed -i -e 's/karaf.delay.console=true/karaf.delay.console=false/' ${FUSE_ARTIFACT}/etc/custom.properties
+	sed -i -e 's/karaf.delay.console=true/karaf.delay.console=false/' ${FUSE_ARTIFACT}/etc/custom.properties && \
+	sed -i -e '$a\mrobson=password,admin,manager,viewer,Monitor, Operator, Maintainer, Deployer, Auditor, Administrator, SuperUser' ${FUSE_ARTIFACT}/etc/users.properties
 
 RUN ${FUSE_HOME}/config.sh
