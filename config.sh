@@ -15,6 +15,7 @@ log4j.throwableRenderer=org.apache.log4j.OsgiThrowableRenderer
 
 # CONSOLE appender not used by default
 log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
 log4j.appender.stdout.layout.replacement=\\\\n  |\u0020
 log4j.appender.stdout.layout.ConversionPattern=%d{ISO8601} | %-5.5p | %-16.16t | %-32.32c{1} | %X{bundle.id} - %X{bundle.name} - %X{bundle.version} | %m%n
 # use this for source code lines enabled in the logs (beware it impacts performance)
