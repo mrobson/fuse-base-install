@@ -3,7 +3,7 @@ FROM mrobson/fuse-base-os:latest
 MAINTAINER Matthew Robson <matthewrobson@gmail.com>
 
 #Binary Variables
-ENV FUSE_VERSION 6.2.1.redhat-084
+ENV FUSE_VERSION 6.2.1.redhat-090
 ENV FUSE_ARTIFACT jboss-fuse-full
 ENV FUSE_RELEASE ${FUSE_ARTIFACT}-${FUSE_VERSION}
 ENV FUSE_ARCHIVE http://repository.jboss.org/nexus/content/groups/ea/org/jboss/fuse/${FUSE_ARTIFACT}/${FUSE_VERSION}/${FUSE_RELEASE}.zip
