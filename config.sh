@@ -53,7 +53,7 @@ export JAVA_MIN_MEM
 export JAVA_MAX_MEM
 export JAVA_PERM_MEM
 export JAVA_MAX_PERM_MEM
-export KARAF_OPTS="-Dkaraf.name=${FUSE_KARAF_NAME} -Druntime.id=${FUSE_RUNTIME_ID} -Djava.security.egd=file:/dev/./urandom"
+export KARAF_OPTS="-Dkaraf.name=${FUSE_KARAF_NAME} -Druntime.id=${FUSE_RUNTIME_ID} -Djava.security.egd=file:/dev/urandom -Daether.updateCheckManager.sessionState=bypass"
 ' > ${FUSE_ARTIFACT}/bin/setenv
 
 rm /opt/fuse/config.sh
